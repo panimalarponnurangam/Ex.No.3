@@ -61,103 +61,113 @@ Driver             	Fog level, visibility	   Route planning and transport schedu
 **Prompt:** “Before planning outdoor logistics, what general weather alerts are most crucial?”
 **Goal:** Determine first-glance alert hierarchy such as severe alerts → precipitation → wind.
 
-Stage 2: System Design and Architecture
-✅ Technical Scenario Prompting
-Prompt: “Design a system where weather API calls are optimized to refresh data hourly without performance bottlenecks.”
-Goal: Push for cache strategies, use of edge servers, and cost-efficient backend logic.
+### Stage 2: System Design and Architecture
+**Technical Scenario Prompting**
+**Prompt:**
+“Design a system where weather API calls are optimized to refresh data hourly without performance bottlenecks.”
+**Goal:**
+Push for cache strategies, use of edge servers, and cost-efficient backend logic.
 
-✅ Straightforward Prompting
-Prompt: “What are the 6 core components of an intelligent weather tracking system?”
-Goal: Cover system-wide planning including API handler, database, alert engine, forecast engine, UI, and analytics module.
+**Straightforward Prompting**
+**Prompt:** “What are the 6 core components of an intelligent weather tracking system?”
+**Goal**: Cover system-wide planning including API handler, database, alert engine, forecast engine, UI, and analytics module.
 
-✅ Tabular Format Prompting
-Module Name	Description	Suggested Stack
-API Integrator	Connects to real-time weather APIs	Python + OpenWeather API
-Caching Layer	Stores frequent calls temporarily	Redis
-Forecast Engine	Predictive model for trends	Prophet / XGBoost
-Visualization UI	Real-time weather charts and alerts	Vue.js / Chart.js
-Notification Hub	Sends weather alerts in real time	Twilio / OneSignal
-Admin Dashboard	Monitor usage & API load	Django Admin
+**Tabular Format Prompting**
+Module Name     	Description	                           Suggested Stack
+API Integrator	   Connects to real-time weather APIs	   Python + OpenWeather API
+Caching Layer	   Stores frequent calls temporarily	   Redis
+Forecast Engine	Predictive model for trends	         Prophet / XGBoost
+Visualization UI	Real-time weather charts and alerts	   Vue.js / Chart.js
+Notification Hub	Sends weather alerts in real time	   Twilio / OneSignal
+Admin Dashboard	Monitor usage & API load	            Django Admin
 
-Goal: Clarify backend and frontend interoperation.
+**Goal:** Clarify backend and frontend interoperation.
 
-✅ Preceding Question Prompting
-Prompt: “Before finalizing serverless vs monolith design, what trade-offs in scalability and latency must be reviewed?”
-Goal: Address architecture decisions based on performance benchmarks.
+**Preceding Question Prompting**
+**Prompt**: “Before finalizing serverless vs monolith design, what trade-offs in scalability and latency must be reviewed?”
+**Goal**: Address architecture decisions based on performance benchmarks.
 
-Stage 3: Prototype Development
-✅ Scenario-Based Workflow Prompting
-Prompt: “A tourist opens the app to check weather for three destinations. Outline their journey from input to result.”
-Goal: Design user-friendly multi-location search with minimum friction.
+## Stage 3: Prototype Development
+### Scenario-Based Workflow Prompting
+**Prompt:** “A tourist opens the app to check weather for three destinations. Outline their journey from input to result.”
 
-✅ Straightforward Prompting
-Prompt: “List the steps for receiving severe weather notifications on the app.”
-Goal: Ensure clear notification setup process: Settings → Location → Notification Type → Save.
+**Goal:** Design user-friendly multi-location search with minimum friction.
 
-✅ Tabular Format Prompting
-Step	User Action	System Response
-1	Tap 'Add City'	Search screen appears
-2	Enter city and select	Weather card for that city added
-3	Enable notifications	Options appear: Alerts / Daily / Custom
-4	Save settings	Notifications configured
+## Straightforward Prompting
+**Prompt:** “List the steps for receiving severe weather notifications on the app.”
 
-Goal: Break down user flow and expected behavior.
+**Goal:** Ensure clear notification setup process: Settings → Location → Notification Type → Save.
 
-✅ Preceding Question Prompting
-Prompt: “Before the user sees full 7-day forecast, should a highlight of ‘next 24 hours’ be shown?”
-Goal: Improve UX by prioritizing near-future insights.
+## Tabular Format Prompting
+### Step	  User Action	           System Response
+1	     Tap 'Add City'	        Search screen appears
+2	     Enter city and select	  Weather card for that city added
+3	     Enable notifications	  Options appear: Alerts / Daily / Custom
+4	     Save settings	        Notifications configured
 
-Stage 4: Testing and Iteration
-✅ Stress Testing Prompting
-Prompt: “Simulate a condition where rainfall alerts are sent to 50,000 users simultaneously. What could break?”
-Goal: Detect issues in push delivery rate, queuing delays, and notification clustering.
+**Goal:** Break down user flow and expected behavior.
 
-✅ Straightforward Prompting
-Prompt: “Mention 3 common UI issues users face in forecast-heavy apps.”
-Goal: Focus on design flaws like overload, poor navigation, and unreadable icons.
+ ## Preceding Question Prompting
+**Prompt:** “Before the user sees full 7-day forecast, should a highlight of ‘next 24 hours’ be shown?”
 
-✅ Tabular Format Prompting
-Issue	Mitigation Strategy
-API Overload	Rate limit & dynamic backoff mechanism
-Cloud Cost Spikes	Schedule-based function triggers
-UI Lag During Alerts Burst	Client-side rendering optimizations
+**Goal:** Improve UX by prioritizing near-future insights.
 
-Goal: Map challenges to actionable fixes.
+## Stage 4: Testing and Iteration
+### Stress Testing Prompting
+**Prompt:** “Simulate a condition where rainfall alerts are sent to 50,000 users simultaneously. What could break?”
 
-✅ Preceding Question Prompting
-Prompt: “Before retrying failed API calls, what timeout or backoff policies should apply?”
-Goal: Protect system from infinite retry loops and ensure graceful degradation.
+**Goal:** Detect issues in push delivery rate, queuing delays, and notification clustering.
 
-Stage 5: Deployment and Continuous Improvement
-✅ Real-World Scenario Prompting
-Prompt: “A cyclone alert has just been issued. How should the system prioritize and deliver location-based alerts?”
-Goal: Ensure dynamic alert routing by user proximity, severity, and timing.
+### Straightforward Prompting
+**Prompt:** “Mention 3 common UI issues users face in forecast-heavy apps.”
 
-✅ Straightforward Prompting
-Prompt: “List 4 long-term growth strategies for a weather app post-deployment.”
-Goal: Drive retention through feature enrichment and engagement loops.
+**Goal**: Focus on design flaws like overload, poor navigation, and unreadable icons.
 
-✅ Tabular Format Prompting
-Strategy	Description
-Premium Subscription	Unlock advanced forecasts & no ads
-Regional Language UI	Increase accessibility across regions
-AI-Powered Insights	Offer suggestions like “carry umbrella”
-Community Reporting	User inputs to refine local predictions
+### Tabular Format Prompting
+**Issue	                        Mitigation Strategy**
+API Overload	               Rate limit & dynamic backoff mechanism
+Cloud Cost Spikes	            Schedule-based function triggers
+UI Lag During Alerts Burst	   Client-side rendering optimizations
 
-Goal: Highlight scalable enhancement pathways.
+**Goal**: Map challenges to actionable fixes.
 
-✅ Preceding Question Prompting
-Prompt: “Before launching in hilly or coastal regions, what terrain-specific forecasts must the system support?”
-Goal: Plan for elevation-based predictions, fog alerts, and landslide risk zones.
+### Preceding Question Prompting
+**Prompt**: “Before retrying failed API calls, what timeout or backoff policies should apply?”
 
-✅ Evaluation of Prompt Effectiveness
-📌 Accuracy & Depth
+**Goal:** Protect system from infinite retry loops and ensure graceful degradation.
+
+## Stage 5: Deployment and Continuous Improvement
+### Real-World Scenario Prompting
+**Prompt:** “A cyclone alert has just been issued. How should the system prioritize and deliver location-based alerts?”
+
+**Goal**:Ensure dynamic alert routing by user proximity, severity, and timing.
+
+### Straightforward Prompting
+**Prompt:** “List 4 long-term growth strategies for a weather app post-deployment.”
+
+**Goal:** Drive retention through feature enrichment and engagement loops.
+
+### Tabular Format Prompting
+Strategy	                Description
+Premium Subscription   	 Unlock advanced forecasts & no ads
+Regional Language UI	    Increase accessibility across regions
+AI-Powered Insights	    Offer suggestions like “carry umbrella”
+Community Reporting	    User inputs to refine local predictions
+
+**Goal:** Highlight scalable enhancement pathways.
+
+###  Preceding Question Prompting
+**Prompt:** “Before launching in hilly or coastal regions, what terrain-specific forecasts must the system support?”
+**Goal**: Plan for elevation-based predictions, fog alerts, and landslide risk zones.
+
+## Evaluation of Prompt Effectiveness
+### Accuracy & Depth
 Prompting variety ensured detailed data capture—from user concerns to system specifications.
 
-📌 User-Centered Adaptability
+### User-Centered Adaptability
 Scenario and preceding prompts helped model actual user decision-making and needs.
 
-📌 Agility & Flexibility
+### Agility & Flexibility
 Structured prompts allowed quick iteration during architecture, testing, and rollout phases.
 
 
